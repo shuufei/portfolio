@@ -40,6 +40,11 @@
         "style": "@emotion/styled",
         "linter": "eslint"
       }
+    },
+    "@nrwl/gatsby": {
+      "application": {
+        "style": "@emotion/styled"
+      }
     }
   },
   "defaultProject": "next-desktop-app"
