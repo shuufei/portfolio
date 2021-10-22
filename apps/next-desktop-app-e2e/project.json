@@ -1,0 +1,29 @@
+{
+  "root": "apps/next-desktop-app-e2e",
+  "sourceRoot": "apps/next-desktop-app-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/next-desktop-app-e2e/cypress.json",
+        "devServerTarget": "next-desktop-app:serve",
+        "tsConfig": "apps/next-desktop-app-e2e/tsconfig.json"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "next-desktop-app:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/next-desktop-app-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["next-desktop-app"]
+}

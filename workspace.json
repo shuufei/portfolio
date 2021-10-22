@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "next-desktop-app": "apps/next-desktop-app",
+    "next-desktop-app-e2e": "apps/next-desktop-app-e2e"
+  }
+}
