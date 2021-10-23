@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `gatsby-desktop-app`,
+    title: `My First Gatsby Site`,
     description: `This is a gatsby application created by Nx.`,
   },
   plugins: [
@@ -14,12 +14,19 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/images`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        name: `blog`,
+        path: `${__dirname}/blog`
+      }
     },
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
@@ -42,5 +49,6 @@ module.exports = {
         icon: `src/images/logo.svg`,
       },
     },
+    'gatsby-plugin-mdx'
   ],
 };
