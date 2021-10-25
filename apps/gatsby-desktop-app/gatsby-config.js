@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `My First Gatsby Site`,
@@ -49,6 +53,13 @@ module.exports = {
         icon: `src/images/logo.svg`,
       },
     },
-    'gatsby-plugin-mdx'
+    'gatsby-plugin-mdx',
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.SPACE_ID,
+        accessToken: process.env.API_KEY
+      }
+    }
   ],
 };

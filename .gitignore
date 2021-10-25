@@ -41,3 +41,5 @@ Thumbs.db
 /apps/gatsby-desktop-app/node_modules
 /apps/gatsby-desktop-app/public
 /apps/gatsby-desktop-app/.cache
+
+.env.*
