@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 import { Layout } from '../../components/layout';
 import { renderRichText, RenderRichTextData, ContentfulRichTextGatsbyReference } from 'gatsby-source-contentful/rich-text';
@@ -10,10 +10,9 @@ const Contentful = ({ data }: AllContentfulBlogResponse) => {
       {
         data.allContentfulBlog.edges.map(edge => {
           return (
-            <div key={edge.node.id}>
-              <h2>{edge.node.title}</h2>
-              {renderRichText(edge.node.body)}
-            </div>
+            <h3 key={edge.node.id}>
+              <Link to={`/contentful/${edge.node.id}`}>{edge.node.title}</Link>
+            </h3>
           )
         })
       }
