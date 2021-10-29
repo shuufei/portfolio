@@ -4,7 +4,7 @@ import { Layout } from '../components/layout';
 const AboutPage = () => {
   return (
     <Layout pageTitle="About Me">
-      <p>Hi there!</p>
+      <p>Hi there! 2021/10/29 21:02</p>
     </Layout>
   )
 }
