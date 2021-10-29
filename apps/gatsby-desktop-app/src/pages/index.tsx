@@ -13,7 +13,6 @@ export function Index() {
       }
     }
   `);
-  console.log('--- data: ', data);
   /*
    * Replace the elements below with your own.
    *

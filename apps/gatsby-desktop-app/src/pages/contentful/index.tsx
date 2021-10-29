@@ -4,7 +4,6 @@ import { Layout } from '../../components/layout';
 import { renderRichText, RenderRichTextData, ContentfulRichTextGatsbyReference } from 'gatsby-source-contentful/rich-text';
 
 const Contentful = ({ data }: AllContentfulBlogResponse) => {
-  console.log('-- contentful: ', data);
   return (
     <Layout pageTitle="Contentful Blog">
       {

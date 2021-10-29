@@ -14,7 +14,6 @@ const BlogPost = ({data}: {
     };
   }
 }) => {
-  console.log('-- blog post data: ', data);
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
       <p>{data.mdx.frontmatter.date}</p>

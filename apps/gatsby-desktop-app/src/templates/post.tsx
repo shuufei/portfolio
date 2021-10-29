@@ -3,7 +3,6 @@ import {Layout} from "../components/layout";
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 export default function Post({ pageContext }) {
-  console.log('--- pageContext: ', pageContext)
     const { title, id, body } = pageContext.post;
 
     return (

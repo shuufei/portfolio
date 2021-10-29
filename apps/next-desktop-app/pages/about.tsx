@@ -1,5 +1,4 @@
 function About({ post }) {
-  console.log('--- post:', post);
   return <div>About</div>
 }
 

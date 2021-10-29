@@ -16,7 +16,6 @@ const BlogPage = ({ data }: { data: {
     })[];
   }
 } }) => {
-  console.log('--- Blog Page data: ', data);
   return (
     <Layout pageTitle="My Blog Posts">
       {
