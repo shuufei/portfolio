@@ -1,5 +1,5 @@
 function PostDetail() {
-  return <div>Post Detail</div>
-};
+  return <div>Post Detail</div>;
+}
 
 export default PostDetail;

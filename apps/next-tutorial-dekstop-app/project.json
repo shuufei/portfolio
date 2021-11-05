@@ -1,6 +1,6 @@
 {
-  "root": "apps/next-desktop-app",
-  "sourceRoot": "apps/next-desktop-app",
+  "root": "apps/next-tutorial-dekstop-app",
+  "sourceRoot": "apps/next-tutorial-dekstop-app",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,8 +8,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/next-desktop-app",
-        "outputPath": "dist/apps/next-desktop-app"
+        "root": "apps/next-tutorial-dekstop-app",
+        "outputPath": "dist/apps/next-tutorial-dekstop-app"
       },
       "configurations": {
         "production": {}
@@ -36,9 +36,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/next-desktop-app"],
+      "outputs": ["coverage/apps/next-tutorial-dekstop-app"],
       "options": {
-        "jestConfig": "apps/next-desktop-app/jest.config.js",
+        "jestConfig": "apps/next-tutorial-dekstop-app/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -46,7 +46,9 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/next-desktop-app/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/next-tutorial-dekstop-app/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     }
   },

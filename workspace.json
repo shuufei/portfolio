@@ -3,7 +3,7 @@
   "projects": {
     "gatsby-tutorial-desktop-app": "apps/gatsby-tutorial-desktop-app",
     "gatsby-tutorial-desktop-app-e2e": "apps/gatsby-tutorial-desktop-app-e2e",
-    "next-desktop-app": "apps/next-desktop-app",
-    "next-desktop-app-e2e": "apps/next-desktop-app-e2e"
+    "next-tutorial-dekstop-app": "apps/next-tutorial-dekstop-app",
+    "next-tutorial-dekstop-app-e2e": "apps/next-tutorial-dekstop-app-e2e"
   }
 }
