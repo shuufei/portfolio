@@ -1,8 +1,8 @@
 {
   "version": 2,
   "projects": {
-    "gatsby-desktop-app-e2e": "apps/gatsby-desktop-app-e2e",
     "gatsby-tutorial-desktop-app": "apps/gatsby-tutorial-desktop-app",
+    "gatsby-tutorial-desktop-app-e2e": "apps/gatsby-tutorial-desktop-app-e2e",
     "next-desktop-app": "apps/next-desktop-app",
     "next-desktop-app-e2e": "apps/next-desktop-app-e2e"
   }
