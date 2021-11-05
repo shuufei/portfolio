@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `portfolio-site`,
-    description: `This is a gatsby application created by Nx.`,
+    title: `SHUFEI`,
+    description: `SHUFEI Portfolio`,
   },
   plugins: [
     'gatsby-plugin-emotion',

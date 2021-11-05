@@ -13,6 +13,7 @@
     "@emotion/react": "11.5.0",
     "@emotion/server": "11.4.0",
     "@emotion/styled": "11.3.0",
+    "@fontsource/montserrat": "^4.5.1",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@nrwl/next": "13.0.1",
