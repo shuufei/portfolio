@@ -33,12 +33,12 @@ export const typography: Typography = {
     desktop: {
       fontSize: '1.4rem',
       fontWeight: '300',
-      letterSpacing: '.1rem',
+      letterSpacing: 'unset',
     },
     mobile: {
       fontSize: '1.2rem',
       fontWeight: '300',
-      letterSpacing: '.1rem',
+      letterSpacing: 'unsest',
     },
   },
 };
@@ -57,6 +57,7 @@ export const getTypographyStyle = (
     typography[level].desktop.fontWeight};
     letter-spacing: ${customize?.desktop.letterSpacing ??
     typography[level].desktop.letterSpacing};
+    margin-right: -${customize?.desktop.letterSpacing ?? typography[level].desktop.letterSpacing};
     @media (max-width: ${breakpoint}px) {
       font-size: ${customize?.mobile.fontSize ??
       typography[level].mobile.fontSize};
@@ -64,6 +65,7 @@ export const getTypographyStyle = (
       typography[level].mobile.fontWeight};
       letter-spacing: ${customize?.mobile.letterSpacing ??
       typography[level].mobile.letterSpacing};
+      margin-right: -${customize?.mobile.letterSpacing ?? typography[level].mobile.letterSpacing};
     }
   `;
 };
