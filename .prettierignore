@@ -6,3 +6,7 @@
 /apps/gatsby-desktop-app/node_modules
 /apps/gatsby-desktop-app/public
 /apps/gatsby-desktop-app/.cache
+
+/apps/portfolio-site/node_modules
+/apps/portfolio-site/public
+/apps/portfolio-site/.cache

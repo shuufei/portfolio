@@ -4,6 +4,8 @@
     "gatsby-tutorial-desktop-app": "apps/gatsby-tutorial-desktop-app",
     "gatsby-tutorial-desktop-app-e2e": "apps/gatsby-tutorial-desktop-app-e2e",
     "next-tutorial-dekstop-app": "apps/next-tutorial-dekstop-app",
-    "next-tutorial-dekstop-app-e2e": "apps/next-tutorial-dekstop-app-e2e"
+    "next-tutorial-dekstop-app-e2e": "apps/next-tutorial-dekstop-app-e2e",
+    "portfolio-site": "apps/portfolio-site",
+    "portfolio-site-e2e": "apps/portfolio-site-e2e"
   }
 }
