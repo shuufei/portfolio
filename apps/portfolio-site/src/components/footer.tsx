@@ -6,6 +6,7 @@ export const Footer = () => {
     <footer
       css={css`
         text-align: center;
+        padding: 90vh 24px 24px;
       `}
     >
       <p
@@ -20,7 +21,7 @@ export const Footer = () => {
       </p>
       <p
         css={css`
-          font-weight: 500;
+          font-weight: 300;
           font-size: 12px;
           line-height: 1.2;
           letter-spacing: 0.04rem;
