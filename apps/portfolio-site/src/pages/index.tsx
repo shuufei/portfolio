@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Layout } from '../components/layout';
+import { Top } from '../components/top';
 
 export function Index() {
   /*
@@ -8,7 +9,11 @@ export function Index() {
    *
    * Note: The corresponding styles are in the ./portfolio-site.@emotion/styled file.
    */
-  return <Layout></Layout>;
+  return (
+    <Layout>
+      <Top />
+    </Layout>
+  );
 }
 
 export default Index;
