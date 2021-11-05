@@ -1,6 +1,6 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -29,8 +29,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
-        path: `${__dirname}/blog`
-      }
+        path: `${__dirname}/blog`,
+      },
     },
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
@@ -58,8 +58,8 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.SPACE_ID,
-        accessToken: process.env.API_KEY
-      }
-    }
+        accessToken: process.env.API_KEY,
+      },
+    },
   ],
 };

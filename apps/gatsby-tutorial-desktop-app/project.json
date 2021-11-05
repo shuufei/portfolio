@@ -1,12 +1,12 @@
 {
-  "root": "apps/gatsby-desktop-app",
-  "sourceRoot": "apps/gatsby-desktop-app/src",
+  "root": "apps/gatsby-tutorial-desktop-app",
+  "sourceRoot": "apps/gatsby-tutorial-desktop-app/src",
   "projectType": "application",
   "targets": {
     "build": {
       "executor": "@nrwl/gatsby:build",
       "options": {
-        "outputPath": "apps/gatsby-desktop-app/public",
+        "outputPath": "apps/gatsby-tutorial-desktop-app/public",
         "uglify": true,
         "color": true,
         "profile": false
@@ -30,14 +30,16 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/gatsby-desktop-app/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/gatsby-tutorial-desktop-app/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/gatsby-desktop-app"],
+      "outputs": ["coverage/apps/gatsby-tutorial-desktop-app"],
       "options": {
-        "jestConfig": "apps/gatsby-desktop-app/jest.config.js",
+        "jestConfig": "apps/gatsby-tutorial-desktop-app/jest.config.js",
         "passWithNoTests": true
       }
     }

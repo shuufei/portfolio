@@ -6,7 +6,7 @@ const AboutPage = () => {
     <Layout pageTitle="About Me">
       <p>Hi there! 2021/10/29 21:02</p>
     </Layout>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;
