@@ -2,6 +2,7 @@ import * as React from 'react';
 import { css } from '@emotion/react';
 import { getTypographyStyle } from '../styles/typography';
 import { Property } from './property';
+import { sectionTitle } from '../styles/home/typography';
 
 export const About = () => {
   return (
@@ -10,14 +11,7 @@ export const About = () => {
         text-align: center;
       `}
     >
-      <h2
-        css={css`
-          ${getTypographyStyle('subtitle-home')}
-          display: inline-block;
-        `}
-      >
-        ABOUT
-      </h2>
+      <h2 css={sectionTitle}>ABOUT</h2>
 
       <dl
         css={css`

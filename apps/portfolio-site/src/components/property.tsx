@@ -2,6 +2,7 @@ import * as React from 'react';
 import { css, SerializedStyles } from '@emotion/react';
 import { getTypographyStyle } from '../styles/typography';
 import { white } from '../styles/color';
+import { CssStylesProps } from '../types';
 
 const labelStyle = css`
   ${getTypographyStyle('property-label')}
@@ -19,12 +20,8 @@ const valueStyle = css`
   text-overflow: ellipsis;
 `;
 
-type CssProps = {
-  cssStyles?: SerializedStyles;
-};
-
 export const Property = (
-  props: { label: string; value: string; link?: string } & CssProps
+  props: { label: string; value: string; link?: string } & CssStylesProps
 ) => (
   <div
     css={css`
