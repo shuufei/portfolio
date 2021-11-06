@@ -48,7 +48,6 @@ export const Property = (
         href={
           props.link ?? `https://www.google.com/search?q=${props.value}&hl=ja`
         }
-        target="_blank"
         css={css`
           text-decoration: none;
           color: ${white};
