@@ -61,6 +61,7 @@ export const Experience = (props: CssStylesProps) => {
                     text-align: left;
                     overflow-x: hidden;
                     text-overflow: ellipsis;
+                    margin-top: 0.4rem;
                   `}
                 >
                   {item.label}
