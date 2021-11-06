@@ -14,7 +14,14 @@ export const globalStyles = css`
 
   p,
   span,
-  div {
+  div,
+  h1,
+  h2,
+  h3,
+  h4,
+  dl,
+  dt,
+  dd {
     margin: 0;
     padding: 0;
   }

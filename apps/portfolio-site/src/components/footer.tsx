@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer
       css={css`
         text-align: center;
-        padding: 60vh 24px 24px;
+        padding: 40vh 24px 24px;
       `}
     >
       <p

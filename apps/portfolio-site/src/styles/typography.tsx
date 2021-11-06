@@ -7,7 +7,12 @@ type TypographyStyle = {
   letterSpacing: string;
 };
 
-export type Level = 'title' | 'customize';
+export type Level =
+  | 'title'
+  | 'subtitle-home'
+  | 'property-label'
+  | 'property-value'
+  | 'customize';
 
 type Typography = {
   [key in Level]: {
@@ -27,6 +32,42 @@ export const typography: Typography = {
       fontSize: '2.0rem',
       fontWeight: '700',
       letterSpacing: '1.2rem',
+    },
+  },
+  'subtitle-home': {
+    desktop: {
+      fontSize: '1.6rem',
+      fontWeight: '700',
+      letterSpacing: '0.5rem',
+    },
+    mobile: {
+      fontSize: '1.2rem',
+      fontWeight: '700',
+      letterSpacing: '0.4rem',
+    },
+  },
+  'property-label': {
+    desktop: {
+      fontSize: '1.6rem',
+      fontWeight: '300',
+      letterSpacing: '0.1rem',
+    },
+    mobile: {
+      fontSize: '1.4rem',
+      fontWeight: '300',
+      letterSpacing: '0.1rem',
+    },
+  },
+  'property-value': {
+    desktop: {
+      fontSize: '1.4rem',
+      fontWeight: '400',
+      letterSpacing: '0.1rem',
+    },
+    mobile: {
+      fontSize: '1.2rem',
+      fontWeight: '400',
+      letterSpacing: '0.1rem',
     },
   },
   customize: {

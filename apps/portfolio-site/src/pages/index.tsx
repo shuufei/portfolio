@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Layout } from '../components/layout';
 import { Top } from '../components/top';
+import { About } from '../components/about';
 
 export function Index() {
   /*
@@ -12,6 +13,7 @@ export function Index() {
   return (
     <Layout>
       <Top />
+      <About />
     </Layout>
   );
 }
