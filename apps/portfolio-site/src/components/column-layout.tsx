@@ -65,15 +65,17 @@ export const ColumnLayout = ({
           css={css`
             white-space: nowrap;
             width: calc(
-              ${`${100 / layoutStyles.desktop.columnCount}%`} -
-                ${layoutStyles.desktop.gapXRem /
-                layoutStyles.desktop.columnCount}rem
+              ${`(100% - ${
+                layoutStyles.desktop.gapXRem *
+                (layoutStyles.desktop.columnCount - 1)
+              }rem) / ${layoutStyles.desktop.columnCount}`}
             );
             @media (max-width: ${breakpoint}px) {
               width: calc(
-                ${`${100 / layoutStyles.mobile.columnCount}%`} -
-                  ${layoutStyles.mobile.gapXRem /
-                  layoutStyles.mobile.columnCount}rem
+                ${`(100% - ${
+                  layoutStyles.mobile.gapXRem *
+                  (layoutStyles.mobile.columnCount - 1)
+                }rem) / ${layoutStyles.mobile.columnCount}`}
               );
             }
           `}

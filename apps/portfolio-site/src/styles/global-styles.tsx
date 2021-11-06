@@ -29,6 +29,7 @@ export const globalStyles = css`
 
   li {
     list-style: none;
+    line-height: 1;
   }
 
   span {
@@ -36,6 +37,7 @@ export const globalStyles = css`
   }
 
   a {
+    display: inline-block;
     text-decoration: none;
     color: ${white};
     :hover {

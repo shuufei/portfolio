@@ -104,8 +104,6 @@ export const Post = (props: CssStylesProps) => {
     }
   `) as ListPostQueryResponse;
 
-  const gap = 2.4;
-
   return (
     <section
       css={css`
@@ -125,6 +123,7 @@ export const Post = (props: CssStylesProps) => {
         css={css`
           display: flex;
           justify-content: center;
+          margin-top: 2rem;
         `}
       >
         <ColumnLayout
@@ -161,9 +160,6 @@ export const Post = (props: CssStylesProps) => {
                 ),
               };
             })}
-          cssStyles={css`
-            margin-top: 2rem;
-          `}
         />
       </div>
     </section>
