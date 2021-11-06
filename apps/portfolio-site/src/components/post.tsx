@@ -7,6 +7,7 @@ import { breakpoint } from '../styles/breakpoint';
 import { sectionTitle } from '../styles/home/typography';
 import { getTypographyStyle } from '../styles/typography';
 import { CssStylesProps } from '../types';
+import { ColumnLayout } from '../components/column-layout';
 
 dayjs.extend(customParseFormat);
 
@@ -22,7 +23,6 @@ const PostItem = ({
   publishedDatetime: Date;
   media: string;
 } & CssStylesProps) => {
-  const bracketsCharWidth = '1.5rem';
   return (
     <a
       href={link}
@@ -38,18 +38,16 @@ const PostItem = ({
       <span
         css={css`
           ${getTypographyStyle('property-value')}
-          max-width: calc(100% - ${bracketsCharWidth} - ${bracketsCharWidth});
+          line-height: 2.1rem;
+          max-width: 100%;
           overflow-x: hidden;
           text-overflow: ellipsis;
-          position: relative;
           /*
               TODO: insert bracket
               ::after {
                 display: inline-block;
                 content: '」';
                 position: absolute;
-                top: 0;
-                right: -${bracketsCharWidth};
               }
               ::before {
                 display: inline-block;
@@ -65,6 +63,9 @@ const PostItem = ({
         css={css`
           ${getTypographyStyle('caption')}
           margin-top: 6px;
+          max-width: 100%;
+          overflow-x: hidden;
+          text-overflow: ellipsis;
         `}
       >
         {dayjs(publishedDatetime).format('MMMM DD, YYYY')}
@@ -73,6 +74,9 @@ const PostItem = ({
         css={css`
           ${getTypographyStyle('caption')}
           margin-top: 2px;
+          max-width: 100%;
+          overflow-x: hidden;
+          text-overflow: ellipsis;
         `}
       >
         {media}
@@ -123,46 +127,44 @@ export const Post = (props: CssStylesProps) => {
           justify-content: center;
         `}
       >
-        <ul
-          css={css`
-            margin-top: 2rem;
-            display: flex;
-            gap: ${gap}rem;
-            flex-wrap: wrap;
-            max-width: 68rem;
-            @media (max-width: ${breakpoint}px) {
-              max-width: 100%;
-              gap: 0;
-            }
-          `}
-        >
-          {data.allContentfulPost.edges
+        <ColumnLayout
+          layoutStyles={{
+            desktop: {
+              maxWidthRem: 68,
+              gapXRem: 2.0,
+              gapYRem: 3.2,
+              columnCount: 2,
+            },
+            mobile: {
+              maxWidthPer: 100,
+              gapXRem: 0,
+              gapYRem: 2.8,
+              columnCount: 1,
+            },
+          }}
+          items={data.allContentfulPost.edges
             .sort(
               (v1, v2) =>
                 new Date(v2.node.publishedDatetime).valueOf() -
                 new Date(v1.node.publishedDatetime).valueOf()
             )
-            .map(({ node }) => (
-              <li
-                key={node.link.id}
-                css={css`
-                  margin-bottom: 32px;
-                  white-space: nowrap;
-                  width: calc(50% - ${gap / 2}rem);
-                  @media (max-width: ${breakpoint}px) {
-                    width: 100%;
-                  }
-                `}
-              >
-                <PostItem
-                  title={node.title}
-                  link={node.link.link}
-                  media={node.media}
-                  publishedDatetime={new Date(node.publishedDatetime)}
-                />
-              </li>
-            ))}
-        </ul>
+            .map(({ node }) => {
+              return {
+                id: node.link.id,
+                component: (
+                  <PostItem
+                    title={node.title}
+                    link={node.link.link}
+                    media={node.media}
+                    publishedDatetime={new Date(node.publishedDatetime)}
+                  />
+                ),
+              };
+            })}
+          cssStyles={css`
+            margin-top: 2rem;
+          `}
+        />
       </div>
     </section>
   );
