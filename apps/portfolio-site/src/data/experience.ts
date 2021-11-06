@@ -46,63 +46,63 @@ export const experienceList: ExperienceItem[] = [
   },
   {
     label: 'VRT',
-    link: '',
+    link: 'https://www.google.com/search?q=%22visual+regression+test%22',
   },
   {
     label: 'Typescript',
-    link: '',
+    link: 'https://www.typescriptlang.org/',
   },
   {
     label: 'Node.js',
-    link: '',
+    link: 'https://nodejs.org/ja/',
   },
   {
     label: 'Swift',
-    link: '',
+    link: 'https://www.apple.com/jp/swift/',
   },
   {
     label: 'GraphQL',
-    link: '',
+    link: 'https://graphql.org/',
   },
   {
     label: 'Nx',
-    link: '',
+    link: 'https://nx.dev/',
   },
   {
     label: 'Atomic Design',
-    link: '',
+    link: 'https://bradfrost.com/blog/post/atomic-web-design/',
   },
   {
     label: 'AWS Lambda',
-    link: '',
+    link: 'https://aws.amazon.com/jp/lambda/',
   },
   {
     label: 'AWS API Gateway',
-    link: '',
+    link: 'https://aws.amazon.com/jp/api-gateway/',
   },
   {
     label: 'AWS DynamoDB',
-    link: '',
+    link: 'https://aws.amazon.com/jp/dynamodb/',
   },
   {
     label: 'AWS CloudFront',
-    link: '',
+    link: 'https://aws.amazon.com/jp/cloudfront/',
   },
   {
     label: 'AWS S3',
-    link: '',
+    link: 'https://aws.amazon.com/jp/s3/',
   },
   {
     label: 'AWS Cognito',
-    link: '',
+    link: 'https://aws.amazon.com/jp/cognito/',
   },
   {
     label: 'Amplify',
-    link: '',
+    link: 'https://aws.amazon.com/jp/amplify/',
   },
   {
     label: 'Storybook',
-    link: '',
+    link: 'https://storybook.js.org/',
   },
   {
     label: 'UI Design',
