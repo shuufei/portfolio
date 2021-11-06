@@ -21,8 +21,28 @@ export const globalStyles = css`
   h4,
   dl,
   dt,
-  dd {
+  dd,
+  ul {
     margin: 0;
     padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${white};
+    :hover {
+      text-decoration: underline;
+    }
+    :visited {
+      color: ${white};
+    }
   }
 `;

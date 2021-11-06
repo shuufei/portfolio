@@ -22,46 +22,39 @@ const valueStyle = css`
 
 export const Property = (
   props: { label: string; value: string; link?: string } & CssStylesProps
-) => (
-  <div
-    css={css`
-      ${props.cssStyles}
-      display: flex;
-      align-items: baseline;
-      gap: 1.6rem;
-      justify-content: center;
-    `}
-  >
-    <dt
+) => {
+  const link =
+    props.link ?? `https://www.google.com/search?q=${props.value}&hl=ja`;
+  return (
+    <div
       css={css`
-        ${labelStyle}
+        ${props.cssStyles}
+        display: flex;
+        align-items: baseline;
+        gap: 1.6rem;
+        justify-content: center;
       `}
     >
-      {props.label}
-    </dt>
-    <dd
-      css={css`
-        ${valueStyle}
-      `}
-    >
-      <a
-        href={
-          props.link ?? `https://www.google.com/search?q=${props.value}&hl=ja`
-        }
+      <dt
         css={css`
-          text-decoration: none;
-          color: ${white};
-          :hover {
-            text-decoration: underline;
-          }
-          :visited {
-            color: ${white};
-          }
+          ${labelStyle}
         `}
-        rel="noreferrer"
       >
-        {props.value}
-      </a>
-    </dd>
-  </div>
-);
+        {props.label}
+      </dt>
+      <dd
+        css={css`
+          ${valueStyle}
+        `}
+      >
+        <a
+          href={link}
+          target={link.startsWith('http') ? '_blank' : '_self'}
+          rel="noreferrer"
+        >
+          {props.value}
+        </a>
+      </dd>
+    </div>
+  );
+};

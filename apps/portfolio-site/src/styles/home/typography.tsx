@@ -3,5 +3,4 @@ import { getTypographyStyle } from '../typography';
 
 export const sectionTitle = css`
   ${getTypographyStyle('subtitle-home')}
-  display: inline-block;
 `;

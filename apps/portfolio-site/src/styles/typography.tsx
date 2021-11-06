@@ -12,6 +12,7 @@ export type Level =
   | 'subtitle-home'
   | 'property-label'
   | 'property-value'
+  | 'caption'
   | 'customize';
 
 type Typography = {
@@ -67,6 +68,18 @@ export const typography: Typography = {
     mobile: {
       fontSize: '1.2rem',
       fontWeight: '400',
+      letterSpacing: '0.1rem',
+    },
+  },
+  caption: {
+    desktop: {
+      fontSize: '1.2rem',
+      fontWeight: '300',
+      letterSpacing: '0.1rem',
+    },
+    mobile: {
+      fontSize: '0.9rem',
+      fontWeight: '300',
       letterSpacing: '0.1rem',
     },
   },

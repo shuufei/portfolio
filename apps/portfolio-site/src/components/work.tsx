@@ -29,7 +29,7 @@ export const Work = (props: CssStylesProps) => {
         text-align: center;
       `}
     >
-      <h2 css={sectionTitle}>WORK</h2>
+      <h2 css={sectionTitle}>WORKS</h2>
 
       <dl
         css={css`
