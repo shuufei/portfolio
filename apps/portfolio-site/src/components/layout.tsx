@@ -7,7 +7,7 @@ export const Layout = ({ children }: { children?: unknown }) => {
   return (
     <main
       css={css`
-        padding: 0 12px;
+        padding: 0 1.2rem;
       `}
     >
       <Global styles={globalStyles} />

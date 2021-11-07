@@ -116,7 +116,7 @@ export const Post = (props: CssStylesProps) => {
           ${sectionTitle}
         `}
       >
-        POST
+        POSTS
       </h2>
 
       <div
@@ -137,7 +137,7 @@ export const Post = (props: CssStylesProps) => {
             mobile: {
               maxWidthPer: 100,
               gapXRem: 0,
-              gapYRem: 2.8,
+              gapYRem: 2.0,
               columnCount: 1,
             },
           }}
