@@ -5,8 +5,6 @@ import { CssStylesProps } from '../types';
 import { breakpoint } from '../styles/breakpoint';
 
 export const Accounts = ({ cssStyles }: CssStylesProps) => {
-  const width = window.innerWidth;
-  const isMobile = width <= breakpoint;
   return (
     <section
       css={css`
