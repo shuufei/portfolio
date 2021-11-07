@@ -9,28 +9,27 @@ import { Post } from '../components/post';
 import { WordListContent } from '../components/word-list-content';
 import { experienceList } from '../data/experience';
 import { tools } from '../data/tools';
+import { Accounts } from '../components/accounts';
+import { breakpoint } from '../styles/breakpoint';
+
+const sectionMarginStyle = css`
+  margin-top: 12rem;
+  @media (max-width: ${breakpoint}px) {
+    margin-top: 6.4rem;
+  }
+`;
 
 export function Index() {
   return (
     <Layout>
       <Top />
       <About />
-      <Work
-        cssStyles={css`
-          margin-top: 12rem;
-        `}
-      />
-      <Post
-        cssStyles={css`
-          margin-top: 12rem;
-        `}
-      />
+      <Work cssStyles={sectionMarginStyle} />
+      <Post cssStyles={sectionMarginStyle} />
       <WordListContent
         title={'EXPERIENCE'}
         words={experienceList.map((v) => ({ text: v.label, link: v.link }))}
-        cssStyles={css`
-          margin-top: 12rem;
-        `}
+        cssStyles={sectionMarginStyle}
       />
       <WordListContent
         title={'TOOLS'}
@@ -39,8 +38,14 @@ export function Index() {
           desktop: { maxWidthRem: 56 },
           mobile: { maxWidthPer: 64 },
         }}
+        cssStyles={sectionMarginStyle}
+      />
+      <Accounts
         cssStyles={css`
-          margin-top: 12rem;
+          margin-top: 24rem;
+          @media (max-width: ${breakpoint}px) {
+            margin-top: 12rem;
+          }
         `}
       />
     </Layout>
