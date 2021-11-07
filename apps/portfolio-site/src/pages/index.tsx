@@ -6,7 +6,6 @@ import { Top } from '../components/top';
 import { About } from '../components/about';
 import { Work } from '../components/work';
 import { Post } from '../components/post';
-import { Experience } from '../components/experience';
 import { WordListContent } from '../components/word-list-content';
 import { experienceList } from '../data/experience';
 import { tools } from '../data/tools';
