@@ -6,11 +6,11 @@ export type Tool = {
 export const tools: Tool[] = [
   {
     label: 'VSCode',
-    link: '',
+    link: 'https://azure.microsoft.com/ja-jp/products/visual-studio-code/',
   },
   {
     label: 'Chrome',
-    link: '',
+    link: 'https://www.google.com/intl/ja_jp/chrome/',
   },
   {
     label: 'zsh',
@@ -18,30 +18,30 @@ export const tools: Tool[] = [
   },
   {
     label: 'WSL',
-    link: '',
+    link: 'https://docs.microsoft.com/ja-jp/windows/wsl/',
   },
   {
     label: 'Figma',
-    link: '',
+    link: 'https://www.figma.com/',
   },
   {
     label: 'Sketch',
-    link: '',
+    link: 'https://www.sketch.com/',
   },
   {
     label: 'AdobeXD',
-    link: '',
+    link: 'https://www.adobe.com/jp/products/xd.html',
   },
   {
     label: 'Flinto',
-    link: '',
+    link: 'https://www.flinto.com/',
   },
   {
     label: 'Slack',
-    link: '',
+    link: 'https://slack.com/intl/ja-jp/',
   },
   {
     label: 'Notion',
-    link: '',
+    link: 'https://www.notion.so/ja-jp/product',
   },
 ];
