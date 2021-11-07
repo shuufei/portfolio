@@ -7,6 +7,9 @@ import { About } from '../components/about';
 import { Work } from '../components/work';
 import { Post } from '../components/post';
 import { Experience } from '../components/experience';
+import { WordListContent } from '../components/word-list-content';
+import { experienceList } from '../data/experience';
+import { tools } from '../data/tools';
 
 export function Index() {
   return (
@@ -23,7 +26,20 @@ export function Index() {
           margin-top: 12rem;
         `}
       />
-      <Experience
+      <WordListContent
+        title={'EXPERIENCE'}
+        words={experienceList.map((v) => ({ text: v.label, link: v.link }))}
+        cssStyles={css`
+          margin-top: 12rem;
+        `}
+      />
+      <WordListContent
+        title={'TOOLS'}
+        words={tools.map((v) => ({ text: v.label, link: v.link }))}
+        layoutOptions={{
+          desktop: { maxWidthRem: 56 },
+          mobile: { maxWidthPer: 64 },
+        }}
         cssStyles={css`
           margin-top: 12rem;
         `}
