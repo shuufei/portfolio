@@ -12,6 +12,7 @@ import { Layout } from '../components/layout';
 import { breakpoint } from '../styles/breakpoint';
 import { white } from '../styles/color';
 import { getTypographyStyle } from '../styles/typography';
+import { BLOCKS, Text, Block, Inline } from '@contentful/rich-text-types';
 
 const subTitle = getTypographyStyle('customize', {
   desktop: {
@@ -64,6 +65,38 @@ const ImageList = ({ imageList }: { imageList: IGatsbyImageData[] }) => {
             `}
           />
         );
+      })}
+    </>
+  );
+};
+
+const isTextNodeType = (content: Text | Block | Inline): content is Text => {
+  return content.nodeType === 'text';
+};
+
+const CustomRichText = ({
+  content,
+}: {
+  content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+}) => {
+  return (
+    <>
+      {renderRichText(content, {
+        renderNode: {
+          [BLOCKS.PARAGRAPH]: (node) => {
+            return (
+              <p
+                css={css`
+                  margin-bottom: 1.6rem;
+                `}
+              >
+                {node.content.map((v) => {
+                  return isTextNodeType(v) ? v.value : '';
+                })}
+              </p>
+            );
+          },
+        },
       })}
     </>
   );
@@ -222,8 +255,9 @@ export default function WorkTemplate({ pageContext }: Props) {
                     margin-top: 0.8rem;
                   `}
                 >
-                  {pageContext.work.description &&
-                    renderRichText(pageContext.work.description)}
+                  {work.description && (
+                    <CustomRichText content={work.description} />
+                  )}
                 </div>
               </div>
 
