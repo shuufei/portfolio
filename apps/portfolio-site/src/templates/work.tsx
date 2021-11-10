@@ -88,6 +88,7 @@ const CustomRichText = ({
               <p
                 css={css`
                   margin-bottom: 1.6rem;
+                  line-height: 1.6;
                 `}
               >
                 {node.content.map((v) => {
@@ -244,12 +245,12 @@ export default function WorkTemplate({ pageContext }: Props) {
                       desktop: {
                         fontSize: '1.2rem',
                         fontWeight: '400',
-                        letterSpacing: '0.1rem',
+                        letterSpacing: '0.14rem',
                       },
                       mobile: {
-                        fontSize: '1.1rem',
+                        fontSize: '1.2rem',
                         fontWeight: '400',
-                        letterSpacing: '0.1rem',
+                        letterSpacing: '0.14rem',
                       },
                     })}
                     margin-top: 0.8rem;
