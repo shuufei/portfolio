@@ -207,7 +207,18 @@ export default function WorkTemplate({ pageContext }: Props) {
                 <h2 css={subTitle}>DESCRIPTION</h2>
                 <div
                   css={css`
-                    ${getTypographyStyle('caption')}
+                    ${getTypographyStyle('customize', {
+                      desktop: {
+                        fontSize: '1.2rem',
+                        fontWeight: '400',
+                        letterSpacing: '0.1rem',
+                      },
+                      mobile: {
+                        fontSize: '1.1rem',
+                        fontWeight: '400',
+                        letterSpacing: '0.1rem',
+                      },
+                    })}
                     margin-top: 0.8rem;
                   `}
                 >
