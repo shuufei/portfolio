@@ -10,6 +10,8 @@ export const globalStyles = css`
     font-family: 'Montserrat', -apple-system, 'Helvetica Neue', sans-serif;
     color: ${white};
     background-color: ${black};
+    margin: 0;
+    padding: 0;
   }
 
   p,
