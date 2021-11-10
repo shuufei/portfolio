@@ -18,12 +18,12 @@ const subTitle = getTypographyStyle('customize', {
   desktop: {
     fontSize: '1.2rem',
     fontWeight: '700',
-    letterSpacing: '0.3rem',
+    letterSpacing: '0.2rem',
   },
   mobile: {
     fontSize: '1.1rem',
     fontWeight: '700',
-    letterSpacing: '0.3rem',
+    letterSpacing: '0.2rem',
   },
 });
 
@@ -201,7 +201,7 @@ export default function WorkTemplate({ pageContext }: Props) {
                   display: flex;
                   flex-direction: column;
                   gap: 0.8rem 0;
-                  margin-top: 4rem;
+                  margin-top: 1.6rem;
                   @media (min-width: ${breakpoint + 1}px) {
                     display: none;
                   }
