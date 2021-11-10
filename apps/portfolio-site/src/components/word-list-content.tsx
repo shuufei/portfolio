@@ -49,7 +49,7 @@ export const WordListContent = ({
             desktop: {
               maxWidthRem: layoutOptions?.desktop.maxWidthRem ?? 64,
               gapXRem: 1.6,
-              gapYRem: 1.2,
+              gapYRem: 0.8,
               columnCount: 4,
             },
             mobile: {
@@ -76,7 +76,7 @@ export const WordListContent = ({
                     text-align: left;
                     overflow-x: hidden;
                     text-overflow: ellipsis;
-                    margin-top: 0.4rem;
+                    line-height: 1.5;
                   `}
                 >
                   {word.text}
