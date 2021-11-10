@@ -253,6 +253,7 @@ export default function WorkTemplate({ pageContext }: Props) {
                       },
                     })}
                     margin-top: 0.8rem;
+                    white-space: pre-line;
                   `}
                 >
                   {work.description && (
