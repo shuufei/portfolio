@@ -55,7 +55,7 @@ export const typography: Typography = {
     },
     mobile: {
       fontSize: '1.4rem',
-      fontWeight: '300',
+      fontWeight: '400',
       letterSpacing: '0.1rem',
     },
   },
@@ -67,7 +67,7 @@ export const typography: Typography = {
     },
     mobile: {
       fontSize: '1.2rem',
-      fontWeight: '400',
+      fontWeight: '500',
       letterSpacing: '0.1rem',
     },
   },
@@ -79,7 +79,7 @@ export const typography: Typography = {
     },
     mobile: {
       fontSize: '0.9rem',
-      fontWeight: '300',
+      fontWeight: '400',
       letterSpacing: '0.1rem',
     },
   },
@@ -91,7 +91,7 @@ export const typography: Typography = {
     },
     mobile: {
       fontSize: '1.2rem',
-      fontWeight: '300',
+      fontWeight: '400',
       letterSpacing: 'unsest',
     },
   },
