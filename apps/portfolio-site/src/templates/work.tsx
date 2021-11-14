@@ -1,3 +1,4 @@
+import { Block, BLOCKS, Inline, Text } from '@contentful/rich-text-types';
 import { css } from '@emotion/react';
 import dayjs from 'dayjs';
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
@@ -8,11 +9,11 @@ import {
 } from 'gatsby-source-contentful/rich-text';
 import * as React from 'react';
 import { ArrowLeft } from 'react-feather';
+import { ColumnLayoutGrid } from '../components/column-layout-grid';
 import { Layout } from '../components/layout';
 import { breakpoint } from '../styles/breakpoint';
 import { white } from '../styles/color';
 import { getTypographyStyle } from '../styles/typography';
-import { BLOCKS, Text, Block, Inline } from '@contentful/rich-text-types';
 
 const subTitle = getTypographyStyle('customize', {
   desktop: {
@@ -43,6 +44,26 @@ const body = css`
   word-break: break-all;
   line-height: 1.5;
 `;
+
+const WordItem = ({ word }: { word: string }) => {
+  return (
+    <a
+      href={`https://www.google.com/search?q=${word}&hl=ja`}
+      target="_blank"
+      rel="noreferrer"
+      css={css`
+        ${getTypographyStyle('property-value')}
+        width: 100%;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5;
+      `}
+    >
+      {word}
+    </a>
+  );
+};
 
 const ImageList = ({ imageList }: { imageList: IGatsbyImageData[] }) => {
   return (
@@ -310,27 +331,29 @@ export default function WorkTemplate({ pageContext }: Props) {
                 `}
               >
                 <h2 css={subTitle}>TECHNOLOGY</h2>
-                <div
-                  css={css`
-                    ${body}
-                    margin-top: 0.8rem;
-                    display: flex;
-                    gap: 0 2.4rem;
-                  `}
-                >
-                  {work.technologies.map((tech) => {
-                    return (
-                      <a
-                        href={`https://www.google.com/search?q=${tech}&hl=ja`}
-                        target="_blank"
-                        rel="noreferrer"
-                        key={tech}
-                      >
-                        {tech}
-                      </a>
-                    );
+                <ColumnLayoutGrid
+                  layoutStyles={{
+                    desktop: {
+                      columnCount: 4,
+                      gapXRem: 1.6,
+                      gapYRem: 0.4,
+                    },
+                    mobile: {
+                      columnCount: 3,
+                      gapXRem: 1.6,
+                      gapYRem: 0.4,
+                    },
+                  }}
+                  items={work.technologies.map((tech) => {
+                    return {
+                      id: tech,
+                      component: <WordItem word={tech} />,
+                    };
                   })}
-                </div>
+                  cssStyles={css`
+                    margin-top: 0.8rem;
+                  `}
+                />
               </div>
 
               <div
@@ -339,27 +362,29 @@ export default function WorkTemplate({ pageContext }: Props) {
                 `}
               >
                 <h2 css={subTitle}>TOOLS</h2>
-                <div
-                  css={css`
-                    ${body}
-                    margin-top: 0.8rem;
-                    display: flex;
-                    gap: 0 2.4rem;
-                  `}
-                >
-                  {work.tools.map((tool) => {
-                    return (
-                      <a
-                        href={`https://www.google.com/search?q=${tool}&hl=ja`}
-                        target="_blank"
-                        rel="noreferrer"
-                        key={tool}
-                      >
-                        {tool}
-                      </a>
-                    );
+                <ColumnLayoutGrid
+                  layoutStyles={{
+                    desktop: {
+                      columnCount: 4,
+                      gapXRem: 1.6,
+                      gapYRem: 0.4,
+                    },
+                    mobile: {
+                      columnCount: 3,
+                      gapXRem: 1.6,
+                      gapYRem: 0.4,
+                    },
+                  }}
+                  items={work.tools.map((tool) => {
+                    return {
+                      id: tool,
+                      component: <WordItem word={tool} />,
+                    };
                   })}
-                </div>
+                  cssStyles={css`
+                    margin-top: 0.8rem;
+                  `}
+                />
               </div>
 
               {work.relatedPosts.length > 0 ? (
