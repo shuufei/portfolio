@@ -7,7 +7,9 @@ export const Top = () => {
     <div
       css={css`
         min-height: 100vh;
-        min-height: -webkit-fill-available;
+        @supports (-webkit-touch-callout: none) {
+          min-height: -webkit-fill-available;
+        }
         display: flex;
         align-items: center;
         justify-content: center;
