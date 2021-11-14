@@ -37,7 +37,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `portfolio-site`,
+        name: `S H U F E I`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#0A0A0A`,
