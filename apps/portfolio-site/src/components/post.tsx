@@ -104,6 +104,9 @@ export const Post = (props: CssStylesProps) => {
     }
   `) as ListPostQueryResponse;
 
+  const displayCountUnit = 8;
+  const [displayCount, setDisplayCount] = React.useState(displayCountUnit);
+
   return (
     <section
       css={css`
@@ -147,6 +150,7 @@ export const Post = (props: CssStylesProps) => {
                 new Date(v2.node.publishedDatetime).valueOf() -
                 new Date(v1.node.publishedDatetime).valueOf()
             )
+            .slice(0, displayCount)
             .map(({ node }) => {
               return {
                 id: node.link.id,
@@ -162,6 +166,32 @@ export const Post = (props: CssStylesProps) => {
             })}
         />
       </div>
+
+      {data.allContentfulPost.edges.length > displayCount ? (
+        <div
+          css={css`
+            margin-top: 4rem;
+            @media (max-width: ${breakpoint}px) {
+              margin-top: 1.6rem;
+            }
+          `}
+        >
+          <span
+            css={css`
+              ${getTypographyStyle('caption')}
+              cursor: pointer;
+              :hover {
+                text-decoration: underline;
+              }
+            `}
+            onClick={() => {
+              setDisplayCount(displayCount + displayCountUnit);
+            }}
+          >
+            more...
+          </span>
+        </div>
+      ) : undefined}
     </section>
   );
 };
