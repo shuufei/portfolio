@@ -112,6 +112,7 @@ export const Post = (props: CssStylesProps) => {
       css={css`
         ${props.cssStyles}
         text-align: center;
+        padding: 0 0.8rem;
       `}
     >
       <h2
