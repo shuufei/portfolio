@@ -15,7 +15,44 @@ export const Top = () => {
         justify-content: center;
       `}
     >
-      <h1 css={getTypographyStyle('title')}>SHUFEI</h1>
+      <h1 css={getTypographyStyle('title')}>
+        <span
+          css={css`
+            letter-spacing: 1rem;
+          `}
+        >
+          S
+        </span>
+        <span
+          css={css`
+            letter-spacing: 0.9rem;
+          `}
+        >
+          H
+        </span>
+        <span
+          css={css`
+            letter-spacing: 0.8rem;
+          `}
+        >
+          U
+        </span>
+        <span
+          css={css`
+            letter-spacing: 0.9rem;
+          `}
+        >
+          F
+        </span>
+        <span
+          css={css`
+            letter-spacing: 0.9rem;
+          `}
+        >
+          E
+        </span>
+        <span>I</span>
+      </h1>
     </div>
   );
 };
