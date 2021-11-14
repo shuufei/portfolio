@@ -2,16 +2,14 @@ import * as React from 'react';
 import { css } from '@emotion/react';
 import { getTypographyStyle } from '../styles/typography';
 import { breakpoint } from '../styles/breakpoint';
+import { CssStylesProps } from '../types';
 
-export const Footer = () => {
+export const Footer = ({ cssStyles }: CssStylesProps) => {
   return (
     <footer
       css={css`
+        ${cssStyles}
         text-align: center;
-        padding: 50vh 24px 24px;
-        @media (max-width: ${breakpoint}px) {
-          padding-top: 36vh;
-        }
       `}
     >
       <p
