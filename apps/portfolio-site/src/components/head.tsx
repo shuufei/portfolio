@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 export const Head = () => {
   const title = 'S H U F E I';
   const description = 'Shufei Poirtfolio';
-  const url = 'https://competent-lichterman-6f12f6.netlify.app/';
+  const url = 'https://competent-lichterman-6f12f6.netlify.app';
   const image = `${url}/images/thumbnail.png`;
   return (
     <Helmet>
@@ -18,9 +18,9 @@ export const Head = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@digital_fei" />
       <meta name="twitter:creator" content="@digital_fei" />
-      {/* <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} /> */}
-      {/* <meta name="twitter:image:src" content={image} /> */}
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image:src" content={image} />
     </Helmet>
   );
 };
