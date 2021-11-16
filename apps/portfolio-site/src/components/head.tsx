@@ -15,12 +15,12 @@ export const Head = () => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      {/* <meta name="twitter:card" content="summary_large_image" /> */}
-      <meta name="twitter:card" content="photo" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@digital_fei" />
       <meta name="twitter:creator" content="@digital_fei" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image:src" content={image} />
+      {/* <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} /> */}
+      {/* <meta name="twitter:image:src" content={image} /> */}
     </Helmet>
   );
 };
