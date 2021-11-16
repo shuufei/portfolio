@@ -11,6 +11,7 @@ import { experienceList } from '../data/experience';
 import { tools } from '../data/tools';
 import { Accounts } from '../components/accounts';
 import { breakpoint } from '../styles/breakpoint';
+import { Head } from '../components/head';
 
 const sectionMarginStyle = css`
   margin-top: 12rem;
@@ -22,6 +23,7 @@ const sectionMarginStyle = css`
 export function Index() {
   return (
     <Layout>
+      <Head />
       <Top />
       <About />
       <Work cssStyles={sectionMarginStyle} />
