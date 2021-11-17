@@ -132,7 +132,7 @@ export default function WorkTemplate({ pageContext }: Props) {
       <Head
         title={`${work.title}`}
         description={`${work.type} - ${work.subTitle}`}
-        url={`https://competent-lichterman-6f12f6.netlify.app/${work.slug}`}
+        url={`https://shufei.dev/${work.slug}`}
         image={`http:${work.images[0].fixed.src}`}
       />
       <div

@@ -11,8 +11,8 @@ export const Head = (
   { title, description, url, image }: HeadProps = {
     title: 'S H U F E I',
     description: 'Shufei Poirtfolio',
-    url: 'https://competent-lichterman-6f12f6.netlify.app',
-    image: `https://competent-lichterman-6f12f6.netlify.app/images/thumbnail.png`,
+    url: 'https://shufei.dev',
+    image: `https://shufei.dev/images/thumbnail.png`,
   }
 ) => {
   return (

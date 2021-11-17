@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `SHUFEI`,
-    description: `SHUFEI Portfolio`,
+    description: `Shufei Portfolio`,
   },
   plugins: [
     'gatsby-plugin-emotion',
