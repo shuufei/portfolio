@@ -29,6 +29,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             tools
             images {
               gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+              fixed {
+                src
+              }
             }
             relatedPosts {
               id

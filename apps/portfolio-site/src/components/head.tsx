@@ -1,10 +1,20 @@
 import Helmet from 'react-helmet';
 
-export const Head = () => {
-  const title = 'S H U F E I';
-  const description = 'Shufei Poirtfolio';
-  const url = 'https://competent-lichterman-6f12f6.netlify.app';
-  const image = `${url}/images/thumbnail.png`;
+export type HeadProps = {
+  title?: string;
+  description?: string;
+  url?: string;
+  image?: string;
+};
+
+export const Head = (
+  { title, description, url, image }: HeadProps = {
+    title: 'S H U F E I',
+    description: 'Shufei Poirtfolio',
+    url: 'https://competent-lichterman-6f12f6.netlify.app',
+    image: `https://competent-lichterman-6f12f6.netlify.app/images/thumbnail.png`,
+  }
+) => {
   return (
     <Helmet>
       <meta name="description" content={description} />

@@ -14,6 +14,7 @@ import { Layout } from '../components/layout';
 import { breakpoint } from '../styles/breakpoint';
 import { white } from '../styles/color';
 import { getTypographyStyle } from '../styles/typography';
+import { Head } from '../components/head';
 
 const subTitle = getTypographyStyle('customize', {
   desktop: {
@@ -128,6 +129,12 @@ export default function WorkTemplate({ pageContext }: Props) {
   const { work } = pageContext;
   return (
     <Layout>
+      <Head
+        title={`${work.title}`}
+        description={`${work.type} - ${work.subTitle}`}
+        url={`https://competent-lichterman-6f12f6.netlify.app/${work.slug}`}
+        image={`http:${work.images[0].fixed.src}`}
+      />
       <div
         css={css`
           padding: 2.4rem 6.4rem;
@@ -180,7 +187,9 @@ export default function WorkTemplate({ pageContext }: Props) {
                 }
               `}
             >
-              <ImageList imageList={work.images} />
+              <ImageList
+                imageList={work.images.map((v) => v.gatsbyImageData)}
+              />
             </section>
 
             <section>
@@ -228,7 +237,9 @@ export default function WorkTemplate({ pageContext }: Props) {
                   }
                 `}
               >
-                <ImageList imageList={work.images} />
+                <ImageList
+                  imageList={work.images.map((v) => v.gatsbyImageData)}
+                />
               </div>
 
               <div
@@ -439,7 +450,12 @@ type Props = {
       startDatetime: string;
       endDatetime?: string;
       description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
-      images: IGatsbyImageData[];
+      images: {
+        fixed: {
+          src: string;
+        };
+        gatsbyImageData: IGatsbyImageData;
+      }[];
       repository: {
         repository: string;
       };
