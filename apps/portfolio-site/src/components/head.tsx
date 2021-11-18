@@ -7,14 +7,11 @@ export type HeadProps = {
   image?: string;
 };
 
-export const Head = (
-  { title, description, url, image }: HeadProps = {
-    title: 'S H U F E I',
-    description: 'Shufei Poirtfolio',
-    url: 'https://shufei.dev',
-    image: `https://shufei.dev/images/thumbnail.png`,
-  }
-) => {
+export const Head = (props: HeadProps) => {
+  const title = props.title ?? 'S H U F E I';
+  const description = props.description ?? 'Shufei Poirtfolio';
+  const url = props.url ?? 'https://shufei.dev';
+  const image = props.image ?? `https://shufei.dev/images/thumbnail.png`;
   return (
     <Helmet>
       <meta name="description" content={description} />
