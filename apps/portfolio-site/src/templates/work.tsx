@@ -20,12 +20,12 @@ const subTitle = getTypographyStyle('customize', {
   desktop: {
     fontSize: '1.2rem',
     fontWeight: '700',
-    letterSpacing: '0.2rem',
+    letterSpacing: '0.15rem',
   },
   mobile: {
     fontSize: '1.1rem',
     fontWeight: '700',
-    letterSpacing: '0.2rem',
+    letterSpacing: '0.15rem',
   },
 });
 
@@ -34,12 +34,12 @@ const body = css`
     desktop: {
       fontSize: '1.4rem',
       fontWeight: '400',
-      letterSpacing: '0.12rem',
+      letterSpacing: '0.1rem',
     },
     mobile: {
       fontSize: '1.2rem',
       fontWeight: '400',
-      letterSpacing: '0.12rem',
+      letterSpacing: '0.1rem',
     },
   })}
   word-break: break-all;
@@ -219,7 +219,7 @@ export default function WorkTemplate({ pageContext }: Props) {
                   mobile: {
                     fontSize: '2.0rem',
                     fontWeight: '700',
-                    letterSpacing: '0.1rem',
+                    letterSpacing: '0.07rem',
                   },
                 })}
               >
@@ -250,188 +250,226 @@ export default function WorkTemplate({ pageContext }: Props) {
                   }
                 `}
               >
-                <h2 css={subTitle}>DURATION</h2>
-                <p
-                  css={css`
-                    ${body}
-                    margin-top: 0.8rem;
-                  `}
-                >
-                  {dayjs(new Date(work.startDatetime)).format('MMMM DD, YYYY')}{' '}
-                  -{' '}
-                  {work.endDatetime
-                    ? dayjs(new Date(work.endDatetime)).format('MMMM DD, YYYY')
-                    : 'Now'}
-                </p>
-              </div>
-
-              <div
-                css={css`
-                  margin-top: 4rem;
-                `}
-              >
-                <h2 css={subTitle}>DESCRIPTION</h2>
-                <div
-                  css={css`
-                    ${getTypographyStyle('customize', {
-                      desktop: {
-                        fontSize: '1.2rem',
-                        fontWeight: '400',
-                        letterSpacing: '0.14rem',
-                      },
-                      mobile: {
-                        fontSize: '1.2rem',
-                        fontWeight: '400',
-                        letterSpacing: '0.14rem',
-                      },
-                    })}
-                    margin-top: 0.8rem;
-                    white-space: pre-line;
-                  `}
-                >
-                  {work.description && (
-                    <CustomRichText content={work.description} />
-                  )}
-                </div>
-              </div>
-
-              <div
-                css={css`
-                  margin-top: 4rem;
-                `}
-              >
-                <h2 css={subTitle}>REPOSITORY</h2>
-                <p
-                  css={css`
-                    ${body}
-                    margin-top: 0.8rem;
-                  `}
-                >
-                  <a
-                    href={work.repository.repository}
-                    target="_blank"
-                    rel="noreferrer"
+                {work.url ? (
+                  <div
+                    css={css`
+                      margin-top: 4rem;
+                    `}
                   >
-                    {work.repository.repository}
-                  </a>
-                </p>
-              </div>
+                    <h2 css={subTitle}>SERVICE URL</h2>
+                    <p
+                      css={css`
+                        ${body}
+                        margin-top: 0.8rem;
+                      `}
+                    >
+                      <a href={work.url.url} target="_blank" rel="noreferrer">
+                        {work.url.url}
+                      </a>
+                    </p>
+                  </div>
+                ) : undefined}
 
-              <div
-                css={css`
-                  margin-top: 4rem;
-                `}
-              >
-                <h2 css={subTitle}>DESIGN</h2>
-                <a
-                  href={work.design.design}
-                  target="_blank"
-                  rel="noreferrer"
-                  css={css`
-                    ${body}
-                    margin-top: 0.8rem;
-                  `}
-                >
-                  {work.design.design}
-                </a>
-              </div>
-
-              <div
-                css={css`
-                  margin-top: 4rem;
-                `}
-              >
-                <h2 css={subTitle}>TECHNOLOGY</h2>
-                <ColumnLayoutGrid
-                  layoutStyles={{
-                    desktop: {
-                      columnCount: 4,
-                      gapXRem: 1.6,
-                      gapYRem: 0.4,
-                    },
-                    mobile: {
-                      columnCount: 3,
-                      gapXRem: 1.6,
-                      gapYRem: 0.4,
-                    },
-                  }}
-                  items={work.technologies.map((tech) => {
-                    return {
-                      id: tech,
-                      component: <WordItem word={tech} />,
-                    };
-                  })}
-                  cssStyles={css`
-                    margin-top: 0.8rem;
-                  `}
-                />
-              </div>
-
-              <div
-                css={css`
-                  margin-top: 4rem;
-                `}
-              >
-                <h2 css={subTitle}>TOOLS</h2>
-                <ColumnLayoutGrid
-                  layoutStyles={{
-                    desktop: {
-                      columnCount: 4,
-                      gapXRem: 1.6,
-                      gapYRem: 0.4,
-                    },
-                    mobile: {
-                      columnCount: 3,
-                      gapXRem: 1.6,
-                      gapYRem: 0.4,
-                    },
-                  }}
-                  items={work.tools.map((tool) => {
-                    return {
-                      id: tool,
-                      component: <WordItem word={tool} />,
-                    };
-                  })}
-                  cssStyles={css`
-                    margin-top: 0.8rem;
-                  `}
-                />
-              </div>
-
-              {work.relatedPosts.length > 0 ? (
                 <div
                   css={css`
                     margin-top: 4rem;
                   `}
                 >
-                  <h2 css={subTitle}>RELATED POSTS</h2>
-                  <div
+                  <h2 css={subTitle}>DURATION</h2>
+                  <p
                     css={css`
                       ${body}
                       margin-top: 0.8rem;
-                      display: flex;
-                      flex-direction: column;
-                      gap: 0.8rem 0;
                     `}
                   >
-                    {work.relatedPosts.map((post, i) => {
-                      return (
-                        <a
-                          href={post.link.link}
-                          target="_blank"
-                          rel="noreferrer"
-                          key={post.id}
-                          css={css`
-                            margin-top: ${i === 0 ? '0.4rem' : '0'};
-                          `}
-                        >
-                          {`「${post.title}」`}
-                        </a>
-                      );
-                    })}
+                    {dayjs(new Date(work.startDatetime)).format(
+                      'MMMM DD, YYYY'
+                    )}{' '}
+                    -{' '}
+                    {work.endDatetime
+                      ? dayjs(new Date(work.endDatetime)).format(
+                          'MMMM DD, YYYY'
+                        )
+                      : 'Now'}
+                  </p>
+                </div>
+
+                <div
+                  css={css`
+                    margin-top: 4rem;
+                  `}
+                >
+                  <h2 css={subTitle}>DESCRIPTION</h2>
+                  <div
+                    css={css`
+                      ${getTypographyStyle('customize', {
+                        desktop: {
+                          fontSize: '1.2rem',
+                          fontWeight: '400',
+                          letterSpacing: '0.04rem',
+                        },
+                        mobile: {
+                          fontSize: '1.2rem',
+                          fontWeight: '400',
+                          letterSpacing: '0.04rem',
+                        },
+                      })}
+                      margin-top: 0.8rem;
+                      white-space: pre-line;
+                    `}
+                  >
+                    {work.description && (
+                      <CustomRichText content={work.description} />
+                    )}
                   </div>
                 </div>
-              ) : undefined}
+
+                {work.repository ? (
+                  <div
+                    css={css`
+                      margin-top: 4rem;
+                    `}
+                  >
+                    <h2 css={subTitle}>REPOSITORY</h2>
+                    <p
+                      css={css`
+                        ${body}
+                        margin-top: 0.8rem;
+                      `}
+                    >
+                      <a
+                        href={work.repository.repository}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {work.repository.repository}
+                      </a>
+                    </p>
+                  </div>
+                ) : undefined}
+
+                {work.design ? (
+                  <div
+                    css={css`
+                      margin-top: 4rem;
+                    `}
+                  >
+                    <h2 css={subTitle}>DESIGN</h2>
+                    <a
+                      href={work.design.design}
+                      target="_blank"
+                      rel="noreferrer"
+                      css={css`
+                        ${body}
+                        margin-top: 0.8rem;
+                      `}
+                    >
+                      {work.design.design}
+                    </a>
+                  </div>
+                ) : undefined}
+
+                {work.technologies != null && work.technologies.length > 0 ? (
+                  <div
+                    css={css`
+                      margin-top: 4rem;
+                    `}
+                  >
+                    <h2 css={subTitle}>TECHNOLOGY</h2>
+                    <ColumnLayoutGrid
+                      layoutStyles={{
+                        desktop: {
+                          columnCount: 4,
+                          gapXRem: 1.6,
+                          gapYRem: 0.4,
+                        },
+                        mobile: {
+                          columnCount: 3,
+                          gapXRem: 1.6,
+                          gapYRem: 0.4,
+                        },
+                      }}
+                      items={work.technologies.map((tech) => {
+                        return {
+                          id: tech,
+                          component: <WordItem word={tech} />,
+                        };
+                      })}
+                      cssStyles={css`
+                        margin-top: 0.8rem;
+                      `}
+                    />
+                  </div>
+                ) : undefined}
+
+                {work.tools != null && work.tools.length > 0 ? (
+                  <div
+                    css={css`
+                      margin-top: 4rem;
+                    `}
+                  >
+                    <h2 css={subTitle}>TOOLS</h2>
+                    <ColumnLayoutGrid
+                      layoutStyles={{
+                        desktop: {
+                          columnCount: 4,
+                          gapXRem: 1.6,
+                          gapYRem: 0.4,
+                        },
+                        mobile: {
+                          columnCount: 3,
+                          gapXRem: 1.6,
+                          gapYRem: 0.4,
+                        },
+                      }}
+                      items={work.tools.map((tool) => {
+                        return {
+                          id: tool,
+                          component: <WordItem word={tool} />,
+                        };
+                      })}
+                      cssStyles={css`
+                        margin-top: 0.8rem;
+                      `}
+                    />
+                  </div>
+                ) : undefined}
+
+                {work.relatedPosts != null && work.relatedPosts.length > 0 ? (
+                  <div
+                    css={css`
+                      margin-top: 4rem;
+                    `}
+                  >
+                    <h2 css={subTitle}>RELATED POSTS</h2>
+                    <div
+                      css={css`
+                        ${body}
+                        margin-top: 0.8rem;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.8rem 0;
+                      `}
+                    >
+                      {work.relatedPosts.map((post, i) => {
+                        return (
+                          <a
+                            href={post.link.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            key={post.id}
+                            css={css`
+                              margin-top: ${i === 0 ? '0.4rem' : '0'};
+                            `}
+                          >
+                            {`「${post.title}」`}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : undefined}
+              </div>
             </section>
           </div>
         </div>
@@ -458,20 +496,26 @@ type Props = {
       }[];
       repository: {
         repository: string;
-      };
+      } | null;
       design: {
         design: string;
-      };
-      technologies: string[];
-      tools: string[];
-      relatedPosts: {
+      } | null;
+      technologies: string[] | null;
+      tools: string[] | null;
+      relatedPosts:
+        | {
+            id: string;
+            title: string;
+            link: {
+              id: string;
+              link: string;
+            };
+          }[]
+        | null;
+      url: {
         id: string;
-        title: string;
-        link: {
-          id: string;
-          link: string;
-        };
-      }[];
+        url: string;
+      } | null;
     };
   };
 };
