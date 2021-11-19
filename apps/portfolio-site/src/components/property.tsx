@@ -46,6 +46,7 @@ export const Property = (
         css={css`
           ${valueStyle}
           line-height: 1;
+          display: flex;
         `}
       >
         <a
