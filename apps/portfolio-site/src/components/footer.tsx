@@ -12,41 +12,47 @@ export const Footer = ({ cssStyles }: CssStylesProps) => {
         text-align: center;
       `}
     >
-      <p
-        css={getTypographyStyle('customize', {
-          desktop: {
-            fontSize: '1.4rem',
-            fontWeight: '700',
-            letterSpacing: '0.4rem',
-          },
-          mobile: {
-            fontSize: '1.2rem',
-            fontWeight: '700',
-            letterSpacing: '0.4rem',
-          },
-        })}
+      <a
+        href="https://github.com/shuufei/portfolio"
+        target="_blank"
+        rel="noreferrer"
       >
-        SHUFEI
-      </p>
-      <p
-        css={css`
-          ${getTypographyStyle('customize', {
+        <p
+          css={getTypographyStyle('customize', {
             desktop: {
-              fontSize: '1.2rem',
-              fontWeight: '300',
-              letterSpacing: '0.04rem',
+              fontSize: '1.4rem',
+              fontWeight: '700',
+              letterSpacing: '0.4rem',
             },
             mobile: {
-              fontSize: '0.9rem',
-              fontWeight: '300',
-              letterSpacing: '0.04rem',
+              fontSize: '1.2rem',
+              fontWeight: '700',
+              letterSpacing: '0.4rem',
             },
           })}
-          margin-top: 4px;
-        `}
-      >
-        Design & Developed by shuufei
-      </p>
+        >
+          SHUFEI
+        </p>
+        <p
+          css={css`
+            ${getTypographyStyle('customize', {
+              desktop: {
+                fontSize: '1.2rem',
+                fontWeight: '300',
+                letterSpacing: '0.04rem',
+              },
+              mobile: {
+                fontSize: '0.9rem',
+                fontWeight: '300',
+                letterSpacing: '0.04rem',
+              },
+            })}
+            margin-top: 4px;
+          `}
+        >
+          Design & Developed by shuufei
+        </p>
+      </a>
     </footer>
   );
 };
