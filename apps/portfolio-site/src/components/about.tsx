@@ -41,6 +41,13 @@ export const About = () => {
             margin-top: 0.4rem;
           `}
         />
+        <Property
+          label={'JOB'}
+          value={'Web Engineer'}
+          cssStyles={css`
+            margin-top: 0.4rem;
+          `}
+        />
       </dl>
     </section>
   );
