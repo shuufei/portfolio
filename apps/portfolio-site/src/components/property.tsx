@@ -52,7 +52,7 @@ export const Property = (
           target={link.startsWith('http') ? '_blank' : '_self'}
           rel="noreferrer"
           css={css`
-            width: 100%;
+            max-width: 100%;
             overflow-x: hidden;
             text-overflow: ellipsis;
           `}
