@@ -134,7 +134,7 @@ export const Post = (props: CssStylesProps) => {
           layoutStyles={{
             desktop: {
               maxWidthRem: 68,
-              gapXRem: 2.0,
+              gapXRem: 4.8,
               gapYRem: 3.2,
               columnCount: 2,
             },
