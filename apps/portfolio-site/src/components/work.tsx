@@ -27,6 +27,7 @@ export const Work = (props: CssStylesProps) => {
       css={css`
         ${props.cssStyles}
         text-align: center;
+        padding: 0 2rem;
       `}
     >
       <h2 css={sectionTitle}>WORKS</h2>

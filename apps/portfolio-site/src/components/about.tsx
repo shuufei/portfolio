@@ -9,6 +9,7 @@ export const About = () => {
     <section
       css={css`
         text-align: center;
+        padding: 0 2rem;
       `}
     >
       <h2 css={sectionTitle}>ABOUT</h2>

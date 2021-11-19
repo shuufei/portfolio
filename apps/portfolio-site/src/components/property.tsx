@@ -51,6 +51,11 @@ export const Property = (
           href={link}
           target={link.startsWith('http') ? '_blank' : '_self'}
           rel="noreferrer"
+          css={css`
+            width: 100%;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+          `}
         >
           {props.value}
         </a>
