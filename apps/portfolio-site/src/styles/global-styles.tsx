@@ -31,7 +31,6 @@ export const globalStyles = css`
 
   li {
     list-style: none;
-    line-height: 1;
   }
 
   span {

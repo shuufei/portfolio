@@ -45,7 +45,6 @@ export const Property = (
       <dd
         css={css`
           ${valueStyle}
-          line-height: 1;
           display: flex;
         `}
       >
