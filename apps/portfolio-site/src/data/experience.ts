@@ -49,7 +49,7 @@ export const experienceList: ExperienceItem[] = [
     link: 'https://www.google.com/search?q=%22visual+regression+test%22',
   },
   {
-    label: 'Typescript',
+    label: 'TypeScript',
     link: 'https://www.typescriptlang.org/',
   },
   {
