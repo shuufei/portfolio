@@ -36,7 +36,7 @@ export const About = () => {
         />
         <Property
           label={'ADDRESS'}
-          value={'Kawasaki'}
+          value={'Hiroshima'}
           cssStyles={css`
             margin-top: 0.4rem;
           `}
