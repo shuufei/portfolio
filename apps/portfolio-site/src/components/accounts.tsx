@@ -68,6 +68,30 @@ export const Accounts = ({ cssStyles }: CssStylesProps) => {
           />
         </a>
         <a
+          href="https://zenn.dev/shuufei"
+          target="_blank"
+          rel="noreferrer"
+          css={css`
+            margin-left: 3.2rem;
+            @media (max-width: ${breakpoint}px) {
+              margin-left: 1.2rem;
+            }
+          `}
+        >
+          <StaticImage
+            src="../images/service/zenn.svg"
+            alt="Zenn Logo"
+            css={css`
+              width: 4rem;
+              height: 4rem;
+              @media (max-width: ${breakpoint}px) {
+                width: 2.4rem;
+                height: 2.4rem;
+              }
+            `}
+          />
+        </a>
+        <a
           href="https://www.behance.net/digitalshu03ef"
           target="_blank"
           rel="noreferrer"
