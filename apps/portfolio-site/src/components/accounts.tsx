@@ -85,8 +85,8 @@ export const Accounts = ({ cssStyles }: CssStylesProps) => {
               width: 4rem;
               height: 4rem;
               @media (max-width: ${breakpoint}px) {
-                width: 2.4rem;
-                height: 2.4rem;
+                width: 2rem;
+                height: 2rem;
               }
             `}
           />
@@ -121,8 +121,9 @@ export const Accounts = ({ cssStyles }: CssStylesProps) => {
           display: inline-flex;
           align-items: center;
           margin-top: 2rem;
+          margin-left: -0.8rem;
           @media (max-width: ${breakpoint}px) {
-            margin-left: 0.8rem;
+            /* margin-left: 0.8rem; */
           }
         `}
       >
