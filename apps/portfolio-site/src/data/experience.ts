@@ -25,8 +25,16 @@ export const experienceList: ExperienceItem[] = [
     link: 'https://ja.reactjs.org/',
   },
   {
+    label: 'React Native',
+    link: 'https://reactnative.dev/',
+  },
+  {
     label: 'Redux',
     link: 'https://redux.js.org/',
+  },
+  {
+    label: 'Next.js',
+    link: 'https://nextjs.org/',
   },
   {
     label: 'Gatsby',
@@ -57,8 +65,24 @@ export const experienceList: ExperienceItem[] = [
     link: 'https://nodejs.org/ja/',
   },
   {
+    label: 'NestJS',
+    link: 'https://nextjs.org/',
+  },
+  {
     label: 'Swift',
     link: 'https://www.apple.com/jp/swift/',
+  },
+  {
+    label: 'SwiftUI',
+    link: 'https://developer.apple.com/jp/xcode/swiftui/',
+  },
+  {
+    label: 'Kotlin',
+    link: 'https://kotlinlang.org/',
+  },
+  {
+    label: 'Jetpack Compose',
+    link: 'https://developer.android.com/jetpack/compose?hl=ja',
   },
   {
     label: 'GraphQL',
@@ -107,5 +131,13 @@ export const experienceList: ExperienceItem[] = [
   {
     label: 'UI Design',
     link: '',
+  },
+  {
+    label: 'Cloudflare Worker',
+    link: 'https://www.cloudflare.com/ja-jp/developer-platform/workers/',
+  },
+  {
+    label: 'Supabase',
+    link: 'https://supabase.com/',
   },
 ];
