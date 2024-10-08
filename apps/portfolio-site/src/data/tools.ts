@@ -9,6 +9,14 @@ export const tools: Tool[] = [
     link: 'https://azure.microsoft.com/ja-jp/products/visual-studio-code/',
   },
   {
+    label: 'XCode',
+    link: 'https://developer.apple.com/jp/xcode/',
+  },
+  {
+    label: 'Android Studio',
+    link: 'https://developer.android.com/studio',
+  },
+  {
     label: 'Chrome',
     link: 'https://www.google.com/intl/ja_jp/chrome/',
   },
