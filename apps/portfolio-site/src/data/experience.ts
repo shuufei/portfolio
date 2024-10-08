@@ -93,10 +93,6 @@ export const experienceList: ExperienceItem[] = [
     link: 'https://nx.dev/',
   },
   {
-    label: 'Atomic Design',
-    link: 'https://bradfrost.com/blog/post/atomic-web-design/',
-  },
-  {
     label: 'AWS Lambda',
     link: 'https://aws.amazon.com/jp/lambda/',
   },
