@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import OutputCard from '../components/OutputCard.astro';
 
-type OutputItem = { title: string; description: string; thumbnail?: string };
+type OutputItem = { title: string; description?: string; thumbnail?: string };
 type PostItem = { title: string; date: string; platform: string; url: string };
 
 type Section =
@@ -16,10 +16,11 @@ const sections: Section[] = [
     label: 'Apps',
     items: [
       { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
-      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
-      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
-      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
-      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'Digimon Card Game', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'Puddle', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'Budget Manager', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'Project Track', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'Task Track', description: '沖縄そばのお店訪問記録iOSアプリ' },
     ],
   },
   {
@@ -27,9 +28,23 @@ const sections: Section[] = [
     label: 'KDS',
     labelSub: '基礎造形',
     items: [
-      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
-      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
-      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: '色材表現研究' },
+      { title: '紙材表現研究' },
+      { title: '棒による造形' },
+      { title: 'シンボルデザイン' },
+      { title: '音の造形' },
+      { title: 'ハンドスカルプチャー' },
+      { title: 'プリペアードドローイング' },
+      { title: 'デッサン' },
+    ],
+  },
+  {
+    type: 'cards',
+    label: 'Sandbox',
+    items: [
+      { title: 'Palarm', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'Movie Ticket App UI', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'うおたろう', description: '沖縄そばのお店訪問記録iOSアプリ' },
     ],
   },
   {
@@ -156,8 +171,7 @@ const sections: Section[] = [
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding-top: 7rem;
-    padding-bottom: 4rem;
+    margin-top: 8rem;
   }
 
   .section-title {
