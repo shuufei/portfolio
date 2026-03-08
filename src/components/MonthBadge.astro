@@ -1,0 +1,30 @@
+---
+interface Props { year: number; month: number; }
+const { year, month } = Astro.props;
+---
+
+<div class="month-badge">
+  <span>{year}. {month}</span>
+</div>
+
+<style>
+  .month-badge {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    padding: 0 0.25rem;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  span {
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #241d1d;
+    line-height: 1;
+    padding-top: 0.15rem;
+    white-space: nowrap;
+  }
+</style>

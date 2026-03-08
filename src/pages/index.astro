@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="shuuhei hanashiro">
+  <main class="page">
+    <!-- Wings -->
+    <div class="wing wing-left"  id="wing-left"></div>
+    <div class="wing wing-right" id="wing-right"></div>
+
+    <!-- Labels (三角形の先端に配置) -->
+    <a href="/inputs"  class="wing-label label-inputs"  id="label-inputs" >Inputs</a>
+    <a href="/outputs" class="wing-label label-outputs" id="label-outputs">Outputs</a>
+
+    <!-- Center -->
+    <div class="center">
+      <!-- TODO: 最終的なアイコン画像に差し替える -->
+      <svg class="avatar" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+      </svg>
+      <p class="handle" id="handle">@shuuhei_hanashiro</p>
+      <div class="sns-popup" id="snsPopup">
+        <a href="https://x.com/shuuhei_hanashiro" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="https://github.com/shuuhei-hanashiro" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <a href="/about" class="about-link">about</a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* ── ページ全体 ── */
+  .page {
+    width: 100vw;
+    height: 100vh;
+    background: #241d1d;
+    position: relative;
+    /*
+      --center-half: アイコン中心から各三角形の先端までの固定距離。
+      これを変えると中央スペースの幅が変わる。
+    */
+    --center-half: 8rem;
+  }
+
+  /* ── Wings (clip-path で三角形) ── */
+  .wing {
+    position: absolute;
+    background: #f9f6ee;
+    top: 20%;
+    bottom: 20%;
+  }
+
+  .wing-left {
+    left: 0;
+    right: calc(50% + var(--center-half));
+    clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+  }
+
+  .wing-right {
+    right: 0;
+    left: calc(50% + var(--center-half));
+    clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+  }
+
+  /* ── Wing ラベル ── */
+  .wing-label {
+    position: absolute;
+    top: 50%;
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #241d1d;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  /* 左ラベル: テキスト右端を左ウィング先端に合わせる */
+  .label-inputs {
+    left: calc(50% - var(--center-half) - 6rem);
+    transform: translate(-100%, -50%);
+  }
+
+  /* 右ラベル: テキスト左端を右ウィング先端に合わせる */
+  .label-outputs {
+    left: calc(50% + var(--center-half) + 6rem);
+    transform: translateY(-50%);
+  }
+
+  /* ── 中央コンテンツ ── */
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* ポインターイベントがウィングに漏れないよう念のため */
+    z-index: 1;
+  }
+
+  .avatar {
+    width: 2.125rem;   /* 34px 固定 */
+    height: 3.5rem;    /* 56px 固定 */
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .handle {
+    margin-top: 0.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-weight: 200;
+    font-size: 0.75rem;   /* 12px 固定 */
+    color: rgba(255, 255, 255, 0.72);
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+  }
+
+  /* SNS popup */
+  .sns-popup {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1414;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    padding: 8px 12px;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  .sns-popup.visible {
+    display: flex;
+  }
+
+  .sns-popup a {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 0.6875rem;   /* 11px */
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .sns-popup a:hover {
+    color: #fff;
+  }
+
+  .about-link {
+    margin-top: 2.25rem;
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-weight: bold;
+    font-size: 1.25rem;   /* 20px 固定 */
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .about-link:hover {
+    opacity: 0.8;
+  }
+</style>
+
+<script>
+  // ── Wing hover: ラベルのフォントをランダム切り替え ──────────────
+  const FONTS = [
+    "Palatino, 'Palatino Linotype', Georgia, serif",
+    "'Times New Roman', Times, serif",
+    "'Courier New', Courier, monospace",
+    "Georgia, serif",
+    "'Century Gothic', 'Trebuchet MS', sans-serif",
+    "Arial, Helvetica, sans-serif",
+    "Garamond, 'EB Garamond', serif",
+  ];
+  const ORIGINAL_FONT = "Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif";
+
+  // ウィングとラベルをグループ化してホバーを共有
+  const wingGroups = [
+    {
+      triggers: ['wing-left',  'label-inputs'],
+      labelId:  'label-inputs',
+    },
+    {
+      triggers: ['wing-right', 'label-outputs'],
+      labelId:  'label-outputs',
+    },
+  ] as const;
+
+  for (const group of wingGroups) {
+    const label = document.getElementById(group.labelId) as HTMLElement | null;
+    if (!label) continue;
+
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+    let hoverCount = 0;
+
+    const onEnter = () => {
+      hoverCount++;
+      if (intervalId) return;
+      intervalId = setInterval(() => {
+        label.style.fontFamily = FONTS[Math.floor(Math.random() * FONTS.length)]!;
+      }, 80);
+    };
+
+    const onLeave = () => {
+      hoverCount--;
+      if (hoverCount > 0) return;
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+      label.style.fontFamily = ORIGINAL_FONT;
+    };
+
+    for (const id of group.triggers) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      el.addEventListener('mouseenter', onEnter);
+      el.addEventListener('mouseleave', onLeave);
+    }
+  }
+
+  // ── SNS popup ──────────────────────────────────────────────────
+  const handle   = document.getElementById('handle');
+  const snsPopup = document.getElementById('snsPopup') as HTMLElement | null;
+
+  if (handle && snsPopup) {
+    let hideTimeout: ReturnType<typeof setTimeout> | null = null;
+
+    const show = () => {
+      if (hideTimeout) clearTimeout(hideTimeout);
+      snsPopup.classList.add('visible');
+    };
+    const hide = () => {
+      hideTimeout = setTimeout(() => snsPopup.classList.remove('visible'), 200);
+    };
+
+    handle.addEventListener('mouseenter', show);
+    handle.addEventListener('mouseleave', hide);
+    snsPopup.addEventListener('mouseenter', show);
+    snsPopup.addEventListener('mouseleave', hide);
+  }
+</script>

@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import OutputCard from '../components/OutputCard.astro';
+
+type OutputItem = { title: string; description: string; thumbnail?: string };
+type PostItem = { title: string; date: string; platform: string; url: string };
+
+type Section =
+  | { type: 'cards'; label: string; labelSub?: string; items: OutputItem[] }
+  | { type: 'posts'; label: string; items: PostItem[] };
+
+const sections: Section[] = [
+  {
+    type: 'cards',
+    label: 'Apps',
+    items: [
+      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
+    ],
+  },
+  {
+    type: 'cards',
+    label: 'KDS',
+    labelSub: '基礎造形',
+    items: [
+      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
+      { title: 'ソバジョグ', description: '沖縄そばのお店訪問記録iOSアプリ' },
+    ],
+  },
+  {
+    type: 'posts',
+    label: 'Posts',
+    items: [
+      {
+        title: '桑沢デザイン研究所 基礎造形専攻を受講してきた',
+        date: 'Feb 09, 2026',
+        platform: 'note',
+        url: 'https://note.com/digitalshuufei/n/n4ce292629ff0',
+      },
+      {
+        title: 'Puddle: ブックマーク管理サービスを個人開発した',
+        date: 'Aug 19, 2023',
+        platform: 'note',
+        url: 'https://note.com/digitalshuufei/n/n6b344c1357e5',
+      },
+      {
+        title: 'UI設計の中で、改めて提供したいユーザ体験を考える',
+        date: 'Aug 17, 2023',
+        platform: 'note',
+        url: 'https://note.com/digitalshuufei/n/n32d2368f8790',
+      },
+      {
+        title: 'UXについて考える 2023',
+        date: 'May 19, 2023',
+        platform: 'note',
+        url: 'https://note.com/digitalshuufei/n/na55e5fcc1bb1',
+      },
+      {
+        title: 'Astro(Island Architecture)とNext.jsのパフォーマンス比較',
+        date: 'Mar 18, 2023',
+        platform: 'Zenn',
+        url: 'https://zenn.dev/shuufei/articles/6e115fe4c8f74e',
+      },
+      {
+        title: 'WebアプリケーションにおけるUIを構築するときに考える3つのこと - コンポーネント編',
+        date: 'Apr 14, 2022',
+        platform: 'Zenn',
+        url: 'https://zenn.dev/shuufei/articles/5174d29e20f9cd',
+      },
+      {
+        title: 'UIデザインに関するサイコゥ!サイコゥ!サイコゥ!なアイデア',
+        date: 'Dec 14, 2021',
+        platform: 'note',
+        url: 'https://note.com/digitalshuufei/n/n199aa5a3986a',
+      },
+      {
+        title: 'Angular with RxJS',
+        date: 'Dec 08, 2020',
+        platform: 'Speaker Deck',
+        url: 'https://speakerdeck.com/shuufei/angular-with-rxjs',
+      },
+    ],
+  },
+];
+---
+
+<Layout title="Outputs — shuuhei hanashiro">
+  <div class="page">
+    <Nav current="outputs" />
+
+    <main class="main">
+      {sections.map(section => (
+        <section class="section">
+          <h2 class="section-title">
+            <span class="section-label">{section.label}</span>
+            {section.type === 'cards' && section.labelSub && (
+              <span class="section-label-sub">{section.labelSub}</span>
+            )}
+          </h2>
+
+          {section.type === 'cards' && (
+            <div class="cards-grid">
+              {section.items.map(item => (
+                <OutputCard
+                  title={item.title}
+                  description={item.description}
+                  thumbnail={item.thumbnail}
+                />
+              ))}
+            </div>
+          )}
+
+          {section.type === 'posts' && (
+            <div class="posts-grid">
+              {section.items.map(post => (
+                <a href={post.url} target="_blank" rel="noopener noreferrer" class="post-item">
+                  <p class="post-title">{post.title}</p>
+                  <span class="post-date">{post.date}</span>
+                  <span class="post-platform">{post.platform}</span>
+                </a>
+              ))}
+            </div>
+          )}
+        </section>
+      ))}
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    background: #241d1d;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main {
+    max-width: 56rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem 8rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+  }
+
+  .section-label {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: white;
+  }
+
+  .section-label-sub {
+    font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: white;
+  }
+
+  /* Cards grid (Apps / KDS) */
+  .cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem 4.4rem;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  /* Posts grid */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 4rem;
+    margin-top: 3rem;
+    width: 100%;
+  }
+
+  .post-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+    text-decoration: none;
+  }
+
+  .post-item:hover .post-title {
+    opacity: 0.7;
+  }
+
+  .post-title {
+    font-family: 'Hiragino Sans', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: white;
+    line-height: 1.5;
+    transition: opacity 0.15s;
+  }
+
+  .post-date {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .post-platform {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+</style>

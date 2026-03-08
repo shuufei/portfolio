@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+
+const experience = [
+  { period: '2022 –', role: 'Software Engineer', company: 'フリーランス' },
+  { period: '2019 – 2022', role: 'Frontend Engineer', company: '株式会社Example' },
+  { period: '2017 – 2019', role: 'Web Designer', company: '株式会社Sample' },
+];
+
+const skills = ['TypeScript', 'React', 'Swift', 'Astro', 'Figma', 'Typography'];
+---
+
+<Layout title="About — shuuhei hanashiro">
+  <div class="page">
+    <Nav current="about" />
+
+    <main class="main">
+      <div class="profile">
+        <svg class="profile-icon" viewBox="0 0 18.0009 29.7524" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M8.91416 0.0121981C10.0691 -0.0589906 11.7589 0.187858 12.8487 0.584464C14.9905 1.35308 16.4595 3.3351 16.5714 5.6079C16.5852 5.88578 16.4296 7.11841 16.461 7.18993C16.8146 7.99646 17.4786 8.77969 17.8829 9.57567C17.9977 9.80178 18.049 10.0539 17.9435 10.2925C17.7501 10.7385 17.1229 10.872 16.7013 11.0493C16.8288 11.4729 16.9233 11.6778 16.6417 12.0571L16.6505 12.1079C16.7264 12.604 16.6262 12.702 16.3331 13.102C16.3772 13.3796 16.4348 13.7057 16.4161 13.9839C16.3957 14.2864 16.2862 14.5757 16.1026 14.8169C15.1332 16.1011 12.7156 15.1901 12.2755 15.647C12.039 15.8926 11.7715 17.3728 11.7843 17.7534C11.8165 18.7051 12.7714 19.2147 13.3966 19.7993C15.4304 21.7001 16.5667 24.3321 17.0509 27.0415C17.1629 27.6696 17.2641 28.3387 17.2823 28.977C17.2884 29.1949 17.2604 29.4187 17.0987 29.5796C17.0057 29.6721 16.9115 29.6954 16.7852 29.7143C16.349 29.7791 15.8757 29.7417 15.4337 29.7417L12.9288 29.7397L4.63877 29.7427L1.95322 29.7446C1.49073 29.7449 1.02586 29.7518 0.56357 29.7358C0.16526 29.7216 0.0313647 29.3999 0.0225547 29.0464C-0.0500944 26.131 -0.0100684 23.3886 1.12412 20.6558C1.39836 19.9971 1.71937 19.359 2.08505 18.7466C2.98678 17.2124 4.40221 15.2947 4.51181 13.5083C4.56089 12.1474 3.61039 10.9216 3.08115 9.70458C1.0348 4.99859 3.7034 0.290289 8.91416 0.0121981ZM13.17 1.93798C11.9814 1.30188 9.9258 1.00761 8.60166 1.14306C7.02351 1.31458 5.65786 1.85824 4.65341 3.13134C3.23723 4.9547 3.16038 7.30695 4.12509 9.35399C4.65449 10.4773 5.64353 12.0006 5.61533 13.2544C5.54183 16.5137 2.71659 18.904 1.80673 21.9634C1.09851 24.3452 1.08906 26.2369 1.12802 28.6548C4.80976 28.649 8.55546 28.6882 12.2325 28.645H13.2179L13.339 28.646C14.2737 28.6515 15.2089 28.6516 16.1436 28.647C15.9756 25.8131 14.6791 22.3909 12.5128 20.4673C12.1752 20.1691 11.8177 19.8946 11.4425 19.646C10.9107 19.292 8.36155 17.8186 8.16416 17.397C8.41747 17.1466 10.3292 17.8976 10.7227 18.0767C10.6448 17.4395 10.7304 16.9943 10.8849 16.3696C11.0096 15.8659 11.0983 15.4077 11.4249 14.9751C12.0269 14.1776 13.1797 14.4961 14.0392 14.4722C14.4882 14.4804 14.9252 14.5216 15.254 14.1479C15.6129 13.7396 15.109 13.0888 15.4571 12.687C15.7653 12.3315 15.774 12.3066 15.4815 11.9224C15.6434 11.7985 15.7753 11.7106 15.8888 11.5376C15.7651 11.0918 15.6891 10.9729 15.8468 10.5376C15.996 10.1259 16.9609 10.1392 16.8048 9.80517C16.4558 9.05833 15.7577 8.31591 15.4757 7.52392C15.3027 7.03772 15.5229 6.45841 15.5069 5.95946C15.4569 4.33234 14.6262 2.71746 13.17 1.93798Z" fill="white"/>
+        </svg>
+        <h1 class="name">shuuhei hanashiro</h1>
+        <p class="location">Kawasaki, Japan</p>
+      </div>
+
+      <div class="content">
+        <section class="section">
+          <h2 class="section-title">Experience</h2>
+          <div class="experience-list">
+            {experience.map(exp => (
+              <div class="experience-item">
+                <span class="exp-period">{exp.period}</span>
+                <div class="exp-detail">
+                  <span class="exp-role">{exp.role}</span>
+                  <span class="exp-company">{exp.company}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-list">
+            {skills.map(skill => (
+              <span class="skill-tag">{skill}</span>
+            ))}
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    background: #241d1d;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main {
+    max-width: 36rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5rem;
+    margin-bottom: 4rem;
+  }
+
+  .profile-icon {
+    width: 2.125rem;
+    height: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .name {
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: white;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .location {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .section-title {
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .experience-item {
+    display: flex;
+    gap: 2rem;
+    align-items: baseline;
+  }
+
+  .exp-period {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    min-width: 7rem;
+  }
+
+  .exp-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .exp-role {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: white;
+  }
+
+  .exp-company {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+  }
+</style>

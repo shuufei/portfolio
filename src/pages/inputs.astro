@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import InputItem from '../components/InputItem.astro';
+import MonthBadge from '../components/MonthBadge.astro';
+import type { Category } from '../types';
+import { CATEGORY_COLORS } from '../types';
+
+type ItemEntry  = { type: 'item';  title: string; category: Category; tags: string[]; thumbnail?: boolean };
+type MonthEntry = { type: 'month'; year: number; month: number };
+type Entry = ItemEntry | MonthEntry;
+
+const entries: Entry[] = [
+  { type: 'month', year: 2026, month: 3 },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Web',        tags: ['#UI', '#InteractionDesign'] },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Typography', tags: ['#UI', '#InteractionDesign'] },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Web',        tags: ['#UI', '#InteractionDesign'] },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Book',       tags: ['#UI', '#InteractionDesign'], thumbnail: true },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Book',       tags: ['#UI', '#InteractionDesign'], thumbnail: true },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Typography', tags: ['#UI', '#InteractionDesign'] },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Web',        tags: ['#UI', '#InteractionDesign'] },
+  { type: 'month', year: 2026, month: 2 },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Book',       tags: ['#UI', '#InteractionDesign'], thumbnail: true },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Typography', tags: ['#UI', '#InteractionDesign'] },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Book',       tags: ['#UI', '#InteractionDesign'], thumbnail: true },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Typography', tags: ['#UI', '#InteractionDesign'] },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Web',        tags: ['#UI', '#InteractionDesign'] },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Typography', tags: ['#UI', '#InteractionDesign'] },
+  { type: 'month', year: 2026, month: 1 },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Typography', tags: ['#UI', '#InteractionDesign'] },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Book',       tags: ['#UI', '#InteractionDesign'], thumbnail: true },
+  { type: 'item',  title: 'ユーザーインターフェイス設計メモ', category: 'Web',        tags: ['#UI', '#InteractionDesign'] },
+];
+
+const categories: Category[] = ['Web', 'Book', 'Typography'];
+---
+
+<Layout title="Inputs — shuuhei hanashiro">
+  <div class="page">
+    <Nav current="inputs" />
+
+    <main class="main">
+      <!-- Filter row -->
+      <div class="filter-row">
+        <div class="category-filters">
+          {categories.map(cat => (
+            <button class="category-filter" type="button">
+              <span class="cat-dot" style={`background: ${CATEGORY_COLORS[cat]}`} aria-hidden="true" />
+              <span class="cat-label">{cat}</span>
+            </button>
+          ))}
+        </div>
+        <div class="sort-controls">
+          <a href="#" class="sort-link">#Tags</a>
+          <a href="#" class="sort-link sort-link--active">Timeline</a>
+        </div>
+      </div>
+
+      <!-- Items grid (flex-wrap, month badges interspersed) -->
+      <div class="items-grid">
+        {entries.map(entry =>
+          entry.type === 'month'
+            ? <MonthBadge year={entry.year} month={entry.month} />
+            : <InputItem
+                title={entry.title}
+                category={entry.category}
+                tags={entry.tags}
+                thumbnail={entry.thumbnail}
+              />
+        )}
+      </div>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    background: #241d1d;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main {
+    max-width: 56rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* ── Filter row ── */
+  .filter-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 0 2.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .category-filters {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .category-filter {
+    display: flex;
+    gap: 0.1875rem;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .cat-dot {
+    width: 0.4375rem;
+    height: 0.4375rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .cat-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
+    color: white;
+  }
+
+  .sort-controls {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .sort-link {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
+    color: white;
+    text-decoration: underline;
+  }
+
+  .sort-link--active {
+    /* active sort indicator if needed */
+  }
+
+  /* ── Items grid ── */
+  .items-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem 1.8rem;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  @media (max-width: 500px) {
+    .items-grid {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    .items-grid > :global(*) {
+      align-self: flex-start;
+    }
+  }
+</style>

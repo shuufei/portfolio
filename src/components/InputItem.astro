@@ -1,0 +1,99 @@
+---
+import type { Category } from '../types';
+import { CATEGORY_COLORS } from '../types';
+
+interface Props {
+  title:      string;
+  category:   Category;
+  tags:       string[];
+  thumbnail?: boolean;
+}
+const { title, category, tags, thumbnail = false } = Astro.props;
+const dotColor = CATEGORY_COLORS[category];
+---
+
+<div class="input-item">
+  <!-- {thumbnail && <div class="thumbnail" aria-hidden="true" />} -->
+  <div class="item-body">
+    <p class="item-title">{title}</p>
+    <div class="item-meta">
+      <span class="item-category">
+        <span class="dot" style={`background: ${dotColor}`} aria-hidden="true" />
+        {category}
+      </span>
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+  </div>
+</div>
+
+<style>
+  .input-item {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-shrink: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .thumbnail {
+    width: 2rem;   /* 21px */
+    height: 2rem;       /* 16px */
+    background: #a1a1a1;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.16rem;
+    min-width: 0;
+  }
+
+  .item-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Noto Sans JP', sans-serif;
+    font-size: 0.75rem;
+    font-weight: normal;
+    color: white;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+
+  .item-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .item-category {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
+    font-weight: normal;
+    color: white;
+  }
+
+  .dot {
+    width: 0.4375rem;
+    height: 0.4375rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .tag {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
+    color: white;
+  }
+</style>
