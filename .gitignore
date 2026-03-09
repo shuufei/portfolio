@@ -43,6 +43,7 @@ Thumbs.db
 /apps/gatsby-desktop-app/.cache
 
 .env.*
+.wrangler/
 
 /apps/portfolio-site/node_modules
 /apps/portfolio-site/public
