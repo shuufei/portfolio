@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "wrangler pages dev -- astro dev",
+    "dev": "wrangler dev -- astro dev",
     "build": "astro build",
-    "deploy": "astro build && wrangler pages deploy dist/",
+    "deploy": "astro build && wrangler deploy",
     "db:generate": "drizzle-kit generate",
     "db:migrate:local": "wrangler d1 migrations apply portfolio-db --local",
     "db:migrate:remote": "wrangler d1 migrations apply portfolio-db --remote"
