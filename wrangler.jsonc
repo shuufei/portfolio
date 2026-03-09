@@ -1,11 +1,24 @@
 {
-	"main": "dist/_worker.js/index.js",
 	"name": "portfolio",
 	"pages_build_output_dir": "dist/",
 	"compatibility_date": "2026-03-09",
 	"compatibility_flags": [
 		"nodejs_compat",
 		"global_fetch_strictly_public"
+	],
+	"d1_databases": [
+		{
+			"binding": "portfolio_db",
+			"database_name": "portfolio-db",
+			"database_id": "5ebb0eb2-9b3f-4674-909b-e025252fc95f",
+			"migrations_dir": "drizzle/migrations"
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "BUCKET",
+			"bucket_name": "portfolio-assets"
+		}
 	],
 	"observability": {
 		"enabled": true
